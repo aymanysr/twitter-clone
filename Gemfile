@@ -15,7 +15,8 @@ gem "puma", "~> 5.0"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 
-gem 'redis', "~> 4.0"
+# Use Redis adapter to run Action Cable in production
+gem "redis", "~> 4.0"
 
 # Use Sass to process CSS
 gem "sassc-rails"
@@ -41,9 +42,6 @@ gem "cssbundling-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
-
-# Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
