@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <% if flash.any? %>
+      <%= render 'devise/shared/flashes' %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
