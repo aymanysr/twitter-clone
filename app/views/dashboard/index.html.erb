@@ -1,6 +1,7 @@
   <%# blank for now %>
 <h1>We are logged in!</h1>
 <%= link_to "Log Out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-primary btn-lg" %>
+    </aside>
 
 <%= form_with model: Tweet.new, url: tweets_path, local: true do |f| %>
 <%= f.text_field :body %>
