@@ -2,12 +2,11 @@
   <div class="mb-3">
     <%= link_to "Home", dashboard_path, class: "fs-4 text-decoration-none text-black fw-semibold " %>
   </div>
-  <%= render "devise/shared/tweet_form" %>
-  <ul>
-    <%= Tweet.find_each do |tweet| %>
-    <li><%= tweet.body %></li>
-    <% end %>
-  </ul>
+  <div class="mb-4">
+    <%= render "devise/shared/tweet_form" %>
+  </div>
+
+  <%= render Tweet.order(created_at: :desc) %>
 </div>
 <div class="col">
   column
