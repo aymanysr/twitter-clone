@@ -14,7 +14,15 @@
     <% if flash.any? %>
       <%= render 'devise/shared/flashes' %>
     <% end %>
-
+    <% if user_signed_in? %>
+      <div class="container py-2">
+        <div class="row">
+          <%= render 'devise/shared/sidebar' %>
+          <%= yield %>
+        </div>
+      </div>
+    <% else %>
     <%= yield %>
+    <% end %>
   </body>
 </html>
