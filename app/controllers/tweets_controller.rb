@@ -1,11 +1,14 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!
-  
-  def create
-    tweet = Tweet.new(tweet_params)
 
-    if tweet.save
-      redirect_to dashboard_path
+  def create
+    @tweet = Tweet.new(tweet_params)
+
+    if @tweet.save
+      respond_to do |format|
+        format.html { redirect_to dashboard_path }
+        format.turbo_stream
+      end
     end
   end
 
