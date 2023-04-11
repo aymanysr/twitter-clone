@@ -6,6 +6,8 @@ ruby "3.1.2"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem "cloudinary"
+
 gem "dotenv-rails", groups: [:development, :test]
 
 # Use postgresql as the database for Active Record
