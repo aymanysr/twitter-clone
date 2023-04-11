@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one_attached :avatar
   has_many :tweets, dependent: :destroy
+
   validates :username, uniqueness: { case_sensitive: false }, allow_blank: true
 
   before_save :set_display_name, if: -> { username.present? && display_name.blank? }
