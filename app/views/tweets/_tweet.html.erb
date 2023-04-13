@@ -1,7 +1,7 @@
-<%= turbo_frame_tag dom_id(tweet) do %>
+<%= turbo_frame_tag dom_id(tweet_presenter.tweet) do %>
   <div class="tweet d-flex py-3 px-3">
     <div class="flex-shrink-0">
-      <%= cl_image_tag tweet.user.avatar.key,
+      <%= cl_image_tag tweet_presenter.avatar.key,
       :aspect_ratio=>"1:1",
       :border=>"1px_solid_rgb:ffffff",
       :gravity=>"face",
@@ -14,12 +14,13 @@
     </div>
 
     <div class="flex-grow-1 ms-3">
-    <% if (Time.zone.now - tweet.created_at) > 1.day %>
-      <p class="mb-0"><span class="fw-bolder"><%= tweet.user.display_name %></span> <span class="text-muted">@<%= tweet.user.username %> · <%= tweet.created_at.strftime("%b %-d") %></span></p>
-    <% else %>
-      <p class="mb-0"><span class="fw-bolder"><%= tweet.user.display_name %></span> <span class="text-muted">@<%= tweet.user.username %> · <%= time_ago_in_words(tweet.created_at) %></span></p>
-    <% end %>
-    <p class="mb-0"><%= tweet.body %></p>
+
+    <p class="mb-0">
+      <span class="fw-bolder"><%= tweet_presenter.display_name %></span>
+      <span class="text-muted">
+        @<%= tweet_presenter.username %> · <%= tweet_presenter.created_at %></span>
+    </p>
+    <p class="mb-0"><%= tweet_presenter.body %></p>
     </div>
   </div>
 <% end %>
